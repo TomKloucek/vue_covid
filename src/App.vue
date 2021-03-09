@@ -1,19 +1,33 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h2>Up to date: {{this.apiData.datum}}</h2>
+    <Card v-bind:apiData="this.apiData"/>
+    <Chart-container v-bind:apiData="this.apiData"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Card from './components/Card'
+import ChartContainer from './components/ChartContainer'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Card,
+    ChartContainer,
+  },
+  data() {
+    return {
+        apiData: null
+    }
+  },
+  created() {
+    fetch(
+      'https://onemocneni-aktualne.mzcr.cz/api/v2/covid-19/zakladni-prehled.json')
+      .then((response) => response.json())
+      .then((data) => this.apiData = data.data[0]); 
   }
-}
+};
 </script>
 
 <style>
@@ -24,5 +38,13 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+* {
+  margin: 0 auto;
+}
+
+h2 {
+  margin-top: 5%;
 }
 </style>
