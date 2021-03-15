@@ -3,18 +3,22 @@
     <div class="card infected">
       <h3>Infected</h3>
       <h4>{{ apiData.aktivni_pripady }}</h4>
+      <img src="../icons/mask.svg" alt="Mask">
     </div>
     <div class="card recovered">
       <h3>Recovered</h3>
       <h4>{{ apiData.vyleceni }}</h4>
+      <img src="../icons/health.svg" alt="Recovered">
     </div>
     <div class="card death">
       <h3>Death</h3>
       <h4>{{ apiData.umrti }}</h4>
+      <img src="../icons/death.svg" alt="Death">
     </div>
     <div class="card vaccinated">
       <h3>Vaccinated</h3>
-      <h4>{{ apiData.vykazana_ockovani_celkem/2 }}</h4>
+      <h4>{{ Math.round(apiData.vykazana_ockovani_celkem/2) }}</h4>
+      <img src="../icons/vaccine.svg" alt="Vaccine">
     </div>
   </div>
 </template>
@@ -28,25 +32,29 @@ export default {
 
 <style>
 .container {
-  margin-top: 5%;
+  margin-top: 15px;
   width: 60%;
   display: inline-flex;
   justify-content: space-between;
 }
 
 .card {
-  padding-top: 13px;
+  padding-top: 10px;
   width: 22%;
-  height: 250px;
-  background-color: #e1e3e6;
+  height: 175px;
+  background-color: #333538;
   border-radius: 3px;
-  -webkit-box-shadow: 10px 10px 11px -7px rgba(117, 116, 117, 1);
-  -moz-box-shadow: 10px 10px 11px -7px rgba(117, 116, 117, 1);
-  box-shadow: 10px 10px 11px -7px rgba(117, 116, 117, 1);
+  
 }
 
 .card.h3 {
-  color: #4a444d;
+  color: #a19fa1;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.card.h4 {
+   color: #a19fa1;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -65,5 +73,11 @@ export default {
 
 .card.vaccinated {
   border-top: 5px solid #a553cf;
+}
+
+img {
+  margin-top: 10px;
+  height: 80px;
+  width: 80px
 }
 </style>

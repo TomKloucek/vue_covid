@@ -1,27 +1,40 @@
 <template>
-  <div class="container">
+  <div class="chart_container">
     <bar-chart
       v-if="loaded"
       :chartdata="chartdata"
-      :options="options" v-bind:apiData="this.apiData"/>
+      :options="options" />
   </div>
 </template>
 
 <script>
 import BarChart from './Chart.vue'
+import axios from 'axios'
 
 export default {
   name: 'BarChartContainer',
   components: { BarChart },
   data: () => ({
     loaded: false,
-    chartdata: null
+    chartdata: null,
+    apiData: null
   }),
-  props: ['apiData'],
   async mounted () {
     this.loaded = false
     try {
-      this.chartdata = 5
+      const data  = await axios.get('https://onemocneni-aktualne.mzcr.cz/api/v2/covid-19/zakladni-prehled.json')
+      const datasets = {
+      labels: ['Infected', 'Recovered','Dead','Vaccinated'],
+      datasets: [
+        {
+          label: `Aktualni k datu: ${data.data.data[0].datum}`,
+          backgroundColor: ['#53db56','#635bba','#c44037','#a553cf'],
+          data: [data.data.data[0].aktivni_pripady,data.data.data[0].vyleceni,data.data.data[0].umrti,Math.round(data.data.data[0].vykazana_ockovani_celkem/2)]
+        }
+      ]
+    }
+      console.log(data.data.data[0])
+      this.chartdata = datasets
       this.loaded = true
     } catch (e) {
       console.error(e)
@@ -29,3 +42,9 @@ export default {
   }
 }
 </script>
+
+<style >
+.chart_container{
+  width: 350px;
+}
+</style>
