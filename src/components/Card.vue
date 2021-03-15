@@ -42,9 +42,7 @@ export default {
   padding-top: 10px;
   width: 22%;
   height: 175px;
-  background-color: #333538;
   border-radius: 3px;
-  
 }
 
 .card.h3 {

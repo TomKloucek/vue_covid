@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <h5>Tomáš Klouček; 2021; made with Vue.js</h5>
+    <h5 class="podpis">Tomáš Klouček; 2021; made with Vue.js</h5>
   </footer>
 </template>
 
@@ -14,8 +14,11 @@ export default {
 </script>
 
 <style>
-footer {
-  margin-top: 5%;
+.podpis {
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+  right: 15px;
 }
 </style>
 
