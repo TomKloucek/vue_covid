@@ -29,8 +29,49 @@ export default {
   props: ['apiData']
 };
 </script>
-
 <style>
+@media screen and (max-width: 480px) {
+.container {
+  margin-top: 15px;
+  width: 95%;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+
+.card {
+  padding-top: 10px;
+  width: 22%;
+  height: 100px;
+  border-radius: 3px;
+}
+
+img {
+  margin-top: 5px;
+  height: 40px;
+  width: 40px
+}
+
+h3 {
+  font-size: 12px;
+}
+
+h4 {
+  font-size: 15px;
+}
+
+h1 {
+  margin-top: 30px;
+}
+
+canvas {
+  margin-top: 10px;
+}
+
+}
+
+@media screen and (min-width: 481px) {
+
 .container {
   margin-top: 15px;
   width: 60%;
@@ -38,12 +79,22 @@ export default {
   justify-content: space-between;
 }
 
+
 .card {
   padding-top: 10px;
   width: 22%;
   height: 175px;
   border-radius: 3px;
 }
+
+img {
+  margin-top: 10px;
+  height: 80px;
+  width: 80px
+}
+
+}
+
 
 .card.h3 {
   color: #a19fa1;
@@ -73,9 +124,4 @@ export default {
   border-top: 5px solid #a553cf;
 }
 
-img {
-  margin-top: 10px;
-  height: 80px;
-  width: 80px
-}
 </style>
