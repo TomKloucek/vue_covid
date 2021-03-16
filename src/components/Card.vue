@@ -38,7 +38,6 @@ export default {
   justify-content: space-between;
 }
 
-
 .card {
   padding-top: 10px;
   width: 22%;

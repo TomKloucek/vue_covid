@@ -52,6 +52,8 @@ export default {
 html, 
 body {
     height: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 #app {
@@ -65,6 +67,7 @@ body {
 
 * {
   margin: 0 auto;
+  padding: 0;
 }
 
 h2 {
