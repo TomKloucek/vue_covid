@@ -1,6 +1,6 @@
 <template>
   <div class="chart_container">
-    <bar-chart
+    <pie-chart
       v-if="loaded"
       :chartdata="chartdata"
       :options="options" />
@@ -8,12 +8,12 @@
 </template>
 
 <script>
-import BarChart from './Chart.vue'
+import PieChart from './Chart.vue'
 import axios from 'axios'
 
 export default {
-  name: 'BarChartContainer',
-  components: { BarChart },
+  name: 'PieChartContainer',
+  components: { PieChart },
   data: () => ({
     loaded: false,
     chartdata: null,
